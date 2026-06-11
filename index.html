@@ -12,7 +12,6 @@ header h1 { font-size: 20px; font-weight: 700; }
 header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
 .wrap { padding: 0 16px 40px; max-width: 500px; margin: 0 auto; }
 .sec-label { font-size: 12px; font-weight: 600; color: #8e8e93; letter-spacing: 0.4px; margin: 20px 0 10px; }
-
 .drug-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .drug-btn { background: #fff; border: 2px solid #e5e5ea; border-radius: 14px; padding: 12px 10px; cursor: pointer; text-align: left; width: 100%; font-family: inherit; }
 .drug-btn.on { border-color: #007aff; background: #e8f1ff; }
@@ -20,7 +19,6 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
 .ds { font-size: 11px; color: #8e8e93; display: block; line-height: 1.4; }
 .drug-btn.on .dn { color: #007aff; }
 .drug-btn.on .ds { color: #4a90d9; }
-
 .dr-wrap { display: flex; flex-direction: column; gap: 8px; }
 .dr-btn { background: #fff; border: 2px solid #e5e5ea; border-radius: 14px; padding: 12px 14px; cursor: pointer; text-align: left; width: 100%; font-family: inherit; }
 .dr-btn.on { border-color: #007aff; background: #e8f1ff; }
@@ -28,34 +26,29 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
 .dr-sub { font-size: 11px; color: #8e8e93; line-height: 1.5; }
 .dr-btn.on .dr-name { color: #007aff; }
 .dr-btn.on .dr-sub { color: #4a90d9; }
-
 .input-card { background: #fff; border-radius: 16px; overflow: hidden; }
 .irow { display: flex; align-items: center; padding: 13px 16px; border-bottom: 1px solid #f2f2f7; }
 .irow:last-child { border-bottom: none; }
 .irow label { font-size: 15px; font-weight: 500; flex: 1; }
-.irow input { width: 120px; padding: 9px 12px; border: 1.5px solid #e5e5ea; border-radius: 10px; font-size: 17px; text-align: right; color: #1c1c1e; background: #f2f2f7; font-family: inherit; }
+.irow input { width: 110px; padding: 9px 12px; border: 1.5px solid #e5e5ea; border-radius: 10px; font-size: 17px; text-align: right; color: #1c1c1e; background: #f2f2f7; font-family: inherit; }
 .irow input:focus { outline: none; border-color: #007aff; background: #fff; }
 .unit-txt { font-size: 12px; color: #8e8e93; min-width: 70px; text-align: right; padding-left: 8px; }
-
 .conc-badge { background: #e8f1ff; border-radius: 10px; padding: 10px 14px; font-size: 13px; color: #007aff; font-weight: 600; text-align: center; margin-top: 8px; }
-
 .tab-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #e5e5ea; border-radius: 12px; padding: 3px; margin-bottom: 12px; }
 .tab-btn { background: transparent; border: none; border-radius: 10px; padding: 10px; font-size: 14px; font-weight: 600; color: #8e8e93; cursor: pointer; font-family: inherit; }
 .tab-btn.on { background: #fff; color: #007aff; }
-
 .result-box { border-radius: 20px; padding: 24px 20px; margin-top: 4px; text-align: center; }
 .result-box.blue { background: #007aff; }
 .result-box.green { background: #34c759; }
 .result-box.empty { background: #fff; border: 1.5px solid #e5e5ea; }
 .rlabel { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 8px; }
 .result-box.empty .rlabel { color: #8e8e93; }
-.rval { font-size: 48px; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -1px; }
+.rnum { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -1px; display: block; }
 .runit { font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.75); }
-.result-box.empty .rval { color: #c7c7cc; font-size: 34px; }
+.result-box.empty .rnum { color: #c7c7cc; font-size: 36px; }
 .result-box.empty .runit { color: #c7c7cc; }
 .rmix { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 10px; line-height: 1.7; }
 .result-box.empty .rmix { color: #aeaeb2; }
-
 .warn { margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: #fffbea; border-left: 3px solid #ffcc00; font-size: 12px; color: #7a6200; line-height: 1.6; }
 .hidden { display: none !important; }
 </style>
@@ -70,11 +63,11 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
   <p class="sec-label">약물 선택</p>
   <div class="drug-grid">
     <button class="drug-btn" id="d0" onclick="pickDrug(0)"><span class="dn">Norepinephrine</span><span class="ds">NE (Q-Phrine®)</span></button>
-    <button class="drug-btn" id="d1" onclick="pickDrug(1)"><span class="dn">Midazolam</span><span class="ds">바스캄® (0.5mg/cc)</span></button>
-    <button class="drug-btn" id="d2" onclick="pickDrug(2)"><span class="dn">Midazolam</span><span class="ds">바스캄® (1mg/cc)</span></button>
-    <button class="drug-btn" id="d3" onclick="pickDrug(3)"><span class="dn">Remifentanil</span><span class="ds">REMIVA® 50mcg/cc</span></button>
-    <button class="drug-btn" id="d4" onclick="pickDrug(4)"><span class="dn">Dexmedetomidine</span><span class="ds">Dexmedine® 4mcg/cc</span></button>
-    <button class="drug-btn" id="d5" onclick="pickDrug(5)"><span class="dn">Rocuronium</span><span class="ds">ROCUNIUM® 5mg/cc</span></button>
+    <button class="drug-btn" id="d1" onclick="pickDrug(1)"><span class="dn">Midazolam</span><span class="ds">바스캄® 0.5mg/mL</span></button>
+    <button class="drug-btn" id="d2" onclick="pickDrug(2)"><span class="dn">Midazolam</span><span class="ds">바스캄® 1mg/mL</span></button>
+    <button class="drug-btn" id="d3" onclick="pickDrug(3)"><span class="dn">Remifentanil</span><span class="ds">REMIVA® 50mcg/mL</span></button>
+    <button class="drug-btn" id="d4" onclick="pickDrug(4)"><span class="dn">Dexmedetomidine</span><span class="ds">Dexmedine® 4mcg/mL</span></button>
+    <button class="drug-btn" id="d5" onclick="pickDrug(5)"><span class="dn">Rocuronium</span><span class="ds">ROCUNIUM® 5mg/mL</span></button>
   </div>
 
   <div id="drSection" class="hidden">
@@ -82,40 +75,35 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
     <div class="dr-wrap">
       <button class="dr-btn" id="dr0" onclick="pickDoc(0)">
         <span class="dr-name">Dr. 심재광·성주욱 — Type 1</span>
-        <span class="dr-sub">mcg/min · NE 8mg + 5DW 192cc = 200cc</span>
+        <span class="dr-sub">mcg/min · NE 8mg(2@) + 5DW 192cc = 200cc</span>
       </button>
       <button class="dr-btn" id="dr1" onclick="pickDoc(1)">
         <span class="dr-name">Dr. 심재광·성주욱 — Type 2</span>
-        <span class="dr-sub">mcg/min · NE 8mg + 5DW 92cc = 100cc</span>
+        <span class="dr-sub">mcg/min · NE 8mg(2@) + 5DW 92cc = 100cc</span>
       </button>
       <button class="dr-btn" id="dr2" onclick="pickDoc(2)">
         <span class="dr-name">Dr. 배장환·임지훈·나해정·길송이</span>
-        <span class="dr-sub">mcg/kg/min · NE 8mg + 5DW 92cc = 100cc</span>
+        <span class="dr-sub">mcg/kg/min · NE 8mg(2@) + 5DW 92cc = 100cc</span>
       </button>
     </div>
   </div>
 
-  <!-- 희석 정보 입력 -->
+  <!-- 희석 정보 (기본값 자동입력, 수정 가능) -->
   <div id="mixSection" class="hidden">
-    <p class="sec-label">희석 정보 <span style="font-weight:400;color:#aeaeb2">(기본값 자동입력, 수정 가능)</span></p>
+    <p class="sec-label">희석 정보 <span style="font-weight:400;color:#aeaeb2">(기본값 자동입력 · 수정 가능)</span></p>
     <div class="input-card">
       <div class="irow">
         <label>총 수액량</label>
-        <input type="number" id="totalVol" inputmode="decimal" placeholder="0" min="1" oninput="calcConc()">
+        <input type="number" id="vol" inputmode="decimal" placeholder="0" min="1" oninput="updateConc()">
         <span class="unit-txt">mL</span>
       </div>
       <div class="irow">
-        <label>1 vial 약물 중량</label>
-        <input type="number" id="vialMg" inputmode="decimal" placeholder="0" min="0" oninput="calcConc()">
-        <span class="unit-txt" id="vialUnit">mg/vial</span>
-      </div>
-      <div class="irow">
-        <label>총 vial 개수</label>
-        <input type="number" id="vialCnt" inputmode="decimal" placeholder="0" min="0" oninput="calcConc()">
-        <span class="unit-txt">개</span>
+        <label>총 mix 약물</label>
+        <input type="number" id="drugTotal" inputmode="decimal" placeholder="0" min="0" step="any" oninput="updateConc()">
+        <span class="unit-txt" id="drugUnit">mg</span>
       </div>
     </div>
-    <div class="conc-badge" id="concBadge">농도: — mcg/mL</div>
+    <div class="conc-badge" id="concBadge">농도: — </div>
   </div>
 
   <!-- 체중 -->
@@ -130,7 +118,7 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
     </div>
   </div>
 
-  <!-- 계산 방향 -->
+  <!-- 계산 -->
   <div id="calcSection" class="hidden">
     <p class="sec-label">계산 방향</p>
     <div class="tab-row">
@@ -141,12 +129,13 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
       <div class="irow">
         <label id="inLabel">처방 용량 (감마)</label>
         <input type="number" id="dose" inputmode="decimal" placeholder="0" min="0" step="any" oninput="calc()">
-        <span class="unit-txt" id="inUnit">—</span>
+        <span class="unit-txt" id="inUnit"></span>
       </div>
     </div>
     <div class="result-box empty" id="resBox" style="margin-top:12px">
       <p class="rlabel" id="resLabel">주입 속도</p>
-      <p class="rval" id="resVal">—<span class="runit" id="resUnit"> cc/hr</span></p>
+      <span class="rnum" id="resNum">—</span>
+      <span class="runit" id="resUnit"> cc/hr</span>
       <p class="rmix" id="resMix">위 정보를 모두 입력해 주세요</p>
     </div>
   </div>
@@ -155,24 +144,25 @@ header p { font-size: 13px; color: #8e8e93; margin-top: 3px; }
 </div>
 
 <script type="text/javascript">
-var SD=-1, SDc=-1, TAB=0;
-var gConcMcg=0; // 계산된 농도 mcg/mL
-
-// 약물 기본값: {unit, formula, totalVol, vialMg, vialCnt, vialUnitIsMcg}
-// vialUnitIsMcg: true면 mcg단위, false면 mg단위
+// 약물 데이터
+// formula: mcgmin / mcgkgmin / mcgkghr / mgkghr
+// vol: 총수액량(mL), drugTotal: 총약물량, drugUnit: mg or mcg
 var DRUGS = [
-  {hasDoc:true},
-  {unit:'mg/kg/hr',   formula:'mgkghr',   totalVol:100, vialMg:5,   vialCnt:10, vialUnitIsMcg:false},
-  {unit:'mg/kg/hr',   formula:'mgkghr',   totalVol:50,  vialMg:5,   vialCnt:10, vialUnitIsMcg:false},
-  {unit:'mcg/kg/min', formula:'mcgkgmin', totalVol:100, vialMg:1000,vialCnt:5,  vialUnitIsMcg:true},
-  {unit:'mcg/kg/hr',  formula:'mcgkghr',  totalVol:100, vialMg:200, vialCnt:2,  vialUnitIsMcg:true},
-  {unit:'mg/kg/hr',   formula:'mgkghr',   totalVol:50,  vialMg:50,  vialCnt:5,  vialUnitIsMcg:false}
+  {hasDoc: true},
+  {unit:'mg/kg/hr',   formula:'mgkghr',   vol:100, drugTotal:50,  drugUnit:'mg'},  // Midazolam 0.5mg/mL
+  {unit:'mg/kg/hr',   formula:'mgkghr',   vol:50,  drugTotal:50,  drugUnit:'mg'},  // Midazolam 1mg/mL
+  {unit:'mcg/kg/min', formula:'mcgkgmin', vol:100, drugTotal:5000,drugUnit:'mcg'}, // Remifentanil 50mcg/mL
+  {unit:'mcg/kg/hr',  formula:'mcgkghr',  vol:100, drugTotal:400, drugUnit:'mcg'}, // Dex 4mcg/mL
+  {unit:'mg/kg/hr',   formula:'mgkghr',   vol:50,  drugTotal:250, drugUnit:'mg'}   // Rocuronium 5mg/mL
 ];
 var DOCS = [
-  {unit:'mcg/min',    formula:'mcgmin',   totalVol:200, vialMg:4, vialCnt:2, vialUnitIsMcg:false},
-  {unit:'mcg/min',    formula:'mcgmin',   totalVol:100, vialMg:4, vialCnt:2, vialUnitIsMcg:false},
-  {unit:'mcg/kg/min', formula:'mcgkgmin', totalVol:100, vialMg:4, vialCnt:2, vialUnitIsMcg:false}
+  {unit:'mcg/min',    formula:'mcgmin',    vol:200, drugTotal:8, drugUnit:'mg'},   // NE Type1 40mcg/mL
+  {unit:'mcg/min',    formula:'mcgmin',    vol:100, drugTotal:8, drugUnit:'mg'},   // NE Type2 80mcg/mL
+  {unit:'mcg/kg/min', formula:'mcgkgmin',  vol:100, drugTotal:8, drugUnit:'mg'}    // NE 배장환 80mcg/mL
 ];
+
+var SD=-1, SDc=-1, TAB=0;
+var gConcMcg=0;
 
 function getOpt() {
   if(SD<0) return null;
@@ -180,43 +170,43 @@ function getOpt() {
   return DRUGS[SD];
 }
 
-function toCcHr(formula, dose, w, concMcg) {
-  if(formula==='mcgmin')   return (dose*60)/concMcg;
-  if(formula==='mcgkgmin') return (dose*w*60)/concMcg;
-  if(formula==='mcgkghr')  return (dose*w)/concMcg;
-  if(formula==='mgkghr')   return (dose*w*1000)/concMcg;
+function toCcHr(f, d, w, c) {
+  if(f==='mcgmin')    return (d*60)/c;
+  if(f==='mcgkgmin')  return (d*w*60)/c;
+  if(f==='mcgkghr')   return (d*w)/c;
+  if(f==='mgkghr')    return (d*w*1000)/c;
   return 0;
 }
-function toGamma(formula, cchr, w, concMcg) {
-  if(formula==='mcgmin')   return (cchr*concMcg)/60;
-  if(formula==='mcgkgmin') return (cchr*concMcg)/(w*60);
-  if(formula==='mcgkghr')  return (cchr*concMcg)/w;
-  if(formula==='mgkghr')   return (cchr*concMcg)/(w*1000);
+function toGamma(f, cc, w, c) {
+  if(f==='mcgmin')    return (cc*c)/60;
+  if(f==='mcgkgmin')  return (cc*c)/(w*60);
+  if(f==='mcgkghr')   return (cc*c)/w;
+  if(f==='mgkghr')    return (cc*c)/(w*1000);
   return 0;
 }
 
 function setMixDefaults(opt) {
-  document.getElementById('totalVol').value = opt.totalVol;
-  document.getElementById('vialMg').value   = opt.vialMg;
-  document.getElementById('vialCnt').value  = opt.vialCnt;
-  document.getElementById('vialUnit').textContent = opt.vialUnitIsMcg ? 'mcg/vial' : 'mg/vial';
-  calcConc();
+  document.getElementById('vol').value      = opt.vol;
+  document.getElementById('drugTotal').value= opt.drugTotal;
+  document.getElementById('drugUnit').textContent = opt.drugUnit;
+  updateConc();
 }
 
-function calcConc() {
+function updateConc() {
   var opt = getOpt();
   if(!opt) return;
-  var vol  = parseFloat(document.getElementById('totalVol').value);
-  var vmg  = parseFloat(document.getElementById('vialMg').value);
-  var vcnt = parseFloat(document.getElementById('vialCnt').value);
-  if(!vol||!vmg||!vcnt||isNaN(vol)||isNaN(vmg)||isNaN(vcnt)) {
-    document.getElementById('concBadge').textContent='농도: — mcg/mL';
-    gConcMcg=0; calc(); return;
+  var vol  = parseFloat(document.getElementById('vol').value);
+  var drug = parseFloat(document.getElementById('drugTotal').value);
+  if(!vol||!drug||isNaN(vol)||isNaN(drug)||vol<=0||drug<=0) {
+    gConcMcg=0;
+    document.getElementById('concBadge').textContent='농도: —';
+    calc(); return;
   }
-  var totalMcg = opt.vialUnitIsMcg ? vmg*vcnt : vmg*vcnt*1000;
+  var totalMcg = opt.drugUnit==='mcg' ? drug : drug*1000;
   gConcMcg = totalMcg / vol;
+  var dispConc = gConcMcg>=1000 ? (gConcMcg/1000).toFixed(2)+'mg/mL' : gConcMcg.toFixed(2)+'mcg/mL';
   document.getElementById('concBadge').textContent =
-    '농도: ' + gConcMcg.toFixed(2) + ' mcg/mL  |  총 약물: ' + (opt.vialUnitIsMcg ? (vmg*vcnt).toFixed(0)+'mcg' : (vmg*vcnt).toFixed(0)+'mg');
+    '농도: '+dispConc+'  |  총 약물: '+drug+opt.drugUnit+'  |  총 수액: '+vol+'mL';
   calc();
 }
 
@@ -225,13 +215,14 @@ function pickDrug(i) {
   for(var b=0;b<6;b++) document.getElementById('d'+b).className='drug-btn';
   document.getElementById('d'+i).className='drug-btn on';
   for(var c=0;c<3;c++) document.getElementById('dr'+c).className='dr-btn';
-  document.getElementById('drSection').className  = DRUGS[i].hasDoc ? '' : 'hidden';
-  document.getElementById('mixSection').className = DRUGS[i].hasDoc ? 'hidden' : '';
-  document.getElementById('wtSection').className  = DRUGS[i].hasDoc ? 'hidden' : '';
-  document.getElementById('calcSection').className= DRUGS[i].hasDoc ? 'hidden' : '';
-  if(!DRUGS[i].hasDoc) {
-    setMixDefaults(DRUGS[i]);
-  }
+
+  var hasDoc = DRUGS[i].hasDoc;
+  document.getElementById('drSection').className   = hasDoc?'':'hidden';
+  document.getElementById('mixSection').className  = hasDoc?'hidden':'';
+  document.getElementById('wtSection').className   = hasDoc?'hidden':'';
+  document.getElementById('calcSection').className = hasDoc?'hidden':'';
+  if(!hasDoc) setMixDefaults(DRUGS[i]);
+  document.getElementById('dose').value='';
   calc();
 }
 
@@ -242,8 +233,9 @@ function pickDoc(j) {
   document.getElementById('mixSection').className ='';
   document.getElementById('wtSection').className  ='';
   document.getElementById('calcSection').className='';
-  document.getElementById('vialUnit').textContent = DOCS[j].vialUnitIsMcg ? 'mcg/vial' : 'mg/vial';
+  document.getElementById('drugUnit').textContent = DOCS[j].drugUnit;
   setMixDefaults(DOCS[j]);
+  document.getElementById('dose').value='';
 }
 
 function setTab(t) {
@@ -258,6 +250,7 @@ function calc() {
   var opt=getOpt();
   if(!opt) return;
 
+  var needWeight = opt.formula!=='mcgmin';
   if(TAB===0) {
     document.getElementById('inLabel').textContent='처방 용량 (감마)';
     document.getElementById('inUnit').textContent=opt.unit;
@@ -266,21 +259,21 @@ function calc() {
   } else {
     document.getElementById('inLabel').textContent='현재 주입 속도';
     document.getElementById('inUnit').textContent='cc/hr';
-    document.getElementById('resLabel').textContent='감마 (처방 용량)';
+    document.getElementById('resLabel').textContent='처방 용량 (감마)';
     document.getElementById('resUnit').textContent=' '+opt.unit;
   }
 
   var box=document.getElementById('resBox');
-  var rv=document.getElementById('resVal');
-  var rm=document.getElementById('resMix');
+  var rnum=document.getElementById('resNum');
+  var rmix=document.getElementById('resMix');
 
-  var needWeight = opt.formula!=='mcgmin';
-  var w   = parseFloat(document.getElementById('wt').value);
-  var d   = parseFloat(document.getElementById('dose').value);
+  if(!gConcMcg||gConcMcg<=0) { setEmpty(box,rnum,rmix,'희석 정보를 확인해 주세요'); return; }
 
-  if(!gConcMcg||gConcMcg<=0) { showEmpty(box,rv,rm,'희석 정보를 입력해 주세요'); return; }
-  if(needWeight&&(!w||isNaN(w)||w<=0)) { showEmpty(box,rv,rm,'체중을 입력해 주세요'); return; }
-  if(!d||isNaN(d)||d<=0) { showEmpty(box,rv,rm,'용량을 입력해 주세요'); return; }
+  var w=parseFloat(document.getElementById('wt').value);
+  var d=parseFloat(document.getElementById('dose').value);
+
+  if(needWeight&&(!w||isNaN(w)||w<=0)) { setEmpty(box,rnum,rmix,'체중을 입력해 주세요'); return; }
+  if(!d||isNaN(d)||d<=0) { setEmpty(box,rnum,rmix,'용량을 입력해 주세요'); return; }
 
   var result;
   if(TAB===0) {
@@ -291,17 +284,20 @@ function calc() {
     box.className='result-box green';
   }
 
-  var decimals = (opt.formula==='mcgkgmin'||opt.formula==='mcgmin') ? 3 : 2;
-  rv.innerHTML=result.toFixed(decimals)+'<span class="runit" id="resUnit"> '+(TAB===0?'cc/hr':opt.unit)+'</span>';
-  rv.style.color='#fff'; rv.style.fontSize='48px';
-  rm.textContent='농도 '+gConcMcg.toFixed(2)+'mcg/mL 기준';
+  rnum.textContent=result.toFixed(3).replace(/\.?0+$/,'') ;
+  rnum.style.cssText='color:#fff;font-size:52px;';
+  document.getElementById('resUnit').style.color='rgba(255,255,255,0.75)';
+  rmix.style.color='rgba(255,255,255,0.7)';
+  rmix.textContent='농도 '+(gConcMcg>=1000?(gConcMcg/1000).toFixed(2)+'mg/mL':gConcMcg.toFixed(2)+'mcg/mL')+' 기준';
 }
 
-function showEmpty(box,rv,rm,msg) {
+function setEmpty(box,rnum,rmix,msg) {
   box.className='result-box empty';
-  rv.innerHTML='—<span class="runit" style="color:#c7c7cc"> cc/hr</span>';
-  rv.style.color='#c7c7cc'; rv.style.fontSize='34px';
-  rm.textContent=msg;
+  rnum.textContent='—';
+  rnum.style.cssText='color:#c7c7cc;font-size:36px;';
+  document.getElementById('resUnit').style.color='#c7c7cc';
+  rmix.style.color='#aeaeb2';
+  rmix.textContent=msg;
 }
 </script>
 </body>
